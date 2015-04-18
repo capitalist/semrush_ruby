@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require 'dotenv'
+Dotenv.load
+require "semrush_ruby"
+
+require "pry"
+Pry.start

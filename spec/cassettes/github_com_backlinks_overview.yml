@@ -1,0 +1,36 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.semrush.com/analytics/v1?key=change-this-to-your-real-key&target=github.com&target_type=root_domain&type=backlinks_overview
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - SemrushRuby 0.1.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.7.8
+      Date:
+      - Sat, 18 Apr 2015 15:01:56 GMT
+      Content-Type:
+      - text/plain; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: "total;domains_num;ips_num;follows_num;nofollows_num\r\n44888154;336370;214307;39950955;4937199\r\n"
+    http_version: 
+  recorded_at: Sat, 18 Apr 2015 15:01:56 GMT
+recorded_with: VCR 2.9.3

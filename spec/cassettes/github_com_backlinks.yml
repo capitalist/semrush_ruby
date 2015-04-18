@@ -1,0 +1,90 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.semrush.com/analytics/v1?display_limit=10&display_offset=0&key=change-this-to-your-real-key&target=github.com&target_type=root_domain&type=backlinks
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - SemrushRuby 0.1.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.7.8
+      Date:
+      - Sat, 18 Apr 2015 15:10:57 GMT
+      Content-Type:
+      - text/plain; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        c291cmNlX3RpdGxlO3NvdXJjZV91cmw7dGFyZ2V0X3VybDthbmNob3I7ZXh0
+        ZXJuYWxfbnVtO2ludGVybmFsX251bTtmaXJzdF9zZWVuO2xhc3Rfc2Vlbg0K
+        2b7bjOKAjNm+24zigIzYp9iz4oCM2KfYs+KAjNm+24zigIzZvtuMIC0g2Yjb
+        jNqp24zigIzZvtiv24zYp9iMINiv2KfZhti02YbYp9mF2YfZlCDYotiy2KfY
+        rztodHRwOi8vZmEud2lraXBlZGlhLm9yZy93aWtpL9m+24zigIzZvtuM4oCM
+        2KfYs+KAjNin2LPigIzZvtuM4oCM2b7bjDtodHRwczovL2dpdGh1Yi5jb20v
+        aHJ5ZGdhcmQvcHBzc3BwO9i12YHYrdmH2ZQg2LHYs9mF24wg2b7YsdmI2pjZ
+        hzs2OzE3ODsxNDEyNDk3OTc1OzE0MTYzNDY3NzINCtm+24zigIzZvtuM4oCM
+        2KfYs+KAjNin2LPigIzZvtuM4oCM2b7bjCAtINmI24zaqduM4oCM2b7Yr9uM
+        2KfYjCDYr9in2YbYtNmG2KfZhdmH2ZQg2KLYstin2K87aHR0cDovL2ZhLndp
+        a2lwZWRpYS5vcmcvd2lraS/ZvtuM4oCM2b7bjOKAjNin2LPigIzYp9iz4oCM
+        2b7bjOKAjNm+24w7aHR0cHM6Ly9naXRodWIuY29tL2hyeWRnYXJkL3Bwc3Nw
+        cDtocnlkZ2FyZC9wcHNzcHAgwrcgR2l0SHViOzY7MTc4OzE0MTI0OTc5NzU7
+        MTQxNjM0Njc3Mg0K7JiI7Jm4IOyymOumrCAtIOychO2CpOuwseqzvCwg7Jqw
+        66asIOuqqOuRkOydmCDrsLHqs7zsgqzsoIQ7aHR0cDovL2tvLndpa2lwZWRp
+        YS5vcmcvd2lraS/smIjsmbhf7LKY66asO2h0dHBzOi8vZ2l0aHViLmNvbS90
+        YWthbnV2YS9BTlNJLUlTTy1DLUV4Y2VwdGlvbi1IYW5kbGluZztBbm90aGVy
+        IGV4Y2VwdGlvbiBoYW5kbGluZyBmcmFtZXdvcmsgZm9yIEFOU0kvSVNPIEM7
+        NzsxNTI7MTQxMjQ3NzEwMzsxNDE2MzEzODc2DQpFdGljaGV0dGUgLSBXaWtp
+        cGVkaWE7aHR0cDovL2l0Lndpa2lwZWRpYS5vcmcvd2lraS9TcGVjaWFsZTpF
+        dGljaGV0dGU7aHR0cHM6Ly9naXRodWIuY29tL0NyaXN0aWFuQ2FudG9yby9X
+        aWtpcGVkaWEtdGFncy1pbi1vc20vdHJlZS93aWtpbWFwO1dpa2lwZWRpYS10
+        YWdzLWluLU9TTTs3OzEyNjsxMzk4MDM1NzU5OzEzOTg1NTIzNzgNCllvcmJh
+        IEZvdW5kYXRpb24g4oCUIFdpa2lww6lkaWE7aHR0cDovL2ZyLndpa2lwZWRp
+        YS5vcmcvd2lraS9Zb3JiYV9Gb3VuZGF0aW9uO2h0dHBzOi8vZ2l0aHViLmNv
+        bS95b3JiYS9tZWRpYTtHaXRIdWIgZGUgRmlsbG1vcmUgZXQgTG9tYmFyZDs3
+        OzUzOzE0MTYzNDA5MTU7MTQxNjM0MDkxNQ0K0KHQv9C40YHQvtC6INCz0L7R
+        gdGC0LXQuSDCq9Co0LrQvtC70Ysg0LfQu9C+0YHQu9C+0LLQuNGPwrsg4oCU
+        INCS0LjQutC40L/QtdC00LjRjztodHRwOi8vcnUubS53aWtpcGVkaWEub3Jn
+        L3dpa2kv0KHQv9C40YHQvtC6X9Cz0L7RgdGC0LXQuV/Cq9Co0LrQvtC70Ytf
+        0LfQu9C+0YHQu9C+0LLQuNGPwrs7aHR0cDovL2NvZGVkb3QuZ2l0aHViLmNv
+        bS9zaHo70KHQv9C40YHQvtC6INC30LDQv9C40YHQtdC5INC/0YDQvtCz0YDQ
+        sNC80LzRizs4OzQxNDsxMzc4Nzc1MTM0OzEzODI2NDg0ODUNClNVU0UgU3R1
+        ZGlvIEltYWdlV3JpdGVyIC0gV2lraXBlZGlhLCB0aGUgZnJlZSBlbmN5Y2xv
+        cGVkaWE7aHR0cDovL2VuLm0ud2lraXBlZGlhLm9yZy93aWtpL1NVU0VfU3R1
+        ZGlvX0ltYWdlV3JpdGVyO2h0dHA6Ly9naXRodWIuY29tL21iYXJyaW5nZXIv
+        aW1hZ2V3cml0ZXI7aHR0cDovL2dpdGh1Yi5jb20vbWJhcnJpbmdlci9pbWFn
+        ZXdyaXRlcjs4OzI3OzEzODEzMDAxODE7MTM4Nzc5ODgzOQ0KUmFiaW4gZmlu
+        Z2VycHJpbnQgLSBXaWtpcGVkaWEsIHRoZSBmcmVlIGVuY3ljbG9wZWRpYTto
+        dHRwOi8vZW4ud2lraXBlZGlhLm9yZy93aWtpL1JhYmluX2ZpbmdlcnByaW50
+        O2h0dHBzOi8vZ2l0aHViLmNvbS9qb2VsdHVjY2kvcmFiaW4tZmluZ2VycHJp
+        bnQtYztSYWJpbiBmaW5nZXJwcmludCBhbGdvcml0aG0gaW1wbGVtZW50ZWQg
+        aW4gQzs4OzQ3OzE0MTI1NTkyNDY7MTQxMzc2MjY5NQ0K4Kex4Ka/4KaV4Ka/
+        4Kaq4Ka/4Kah4Ka/4Kav4Ka84Ka+OuCmn+CngeCmh+CmguCmleCmsiAtIOCm
+        heCmuOCmruCngOCmr+CmvOCmviDgp7Hgpr/gppXgpr/gpqrgpr/gpqHgpr/g
+        pq/gprzgpr47aHR0cDovL2FzLndpa2lwZWRpYS5vcmcvd2lraS/gp7Hgpr/g
+        ppXgpr/gpqrgpr/gpqHgpr/gpq/gprzgpr464Kaf4KeB4KaH4KaC4KaV4Kay
+        O2h0dHBzOi8vZ2l0aHViLmNvbS9hemF0b3RoL3R3aW5rbGUvYmxvYi9tYXN0
+        ZXIvbW9yZWJpdHMuanM7VHdpbmtsZSBnaXRodWIgcmVwb3NpdG9yeTs5OzE1
+        MjsxNDEzNjYyNTEwOzE0MTM2NjI1MTANClVzZXI6SmFtaWV3IC0gV2lraXBl
+        ZGlhLCB0aGUgZnJlZSBlbmN5Y2xvcGVkaWE7aHR0cDovL2VuLm0ud2lraXBl
+        ZGlhLm9yZy93aWtpL1VzZXI6SmFtaWV3O2h0dHA6Ly9naXRodWIuY29tL2ph
+        bWlldztodHRwOi8vZ2l0aHViLmNvbS9qYW1pZXc7OTsyOTsxMzc4ODAwNjMz
+        OzEzNzg4MDA2MzMNCg==
+    http_version: 
+  recorded_at: Sat, 18 Apr 2015 15:10:57 GMT
+recorded_with: VCR 2.9.3
