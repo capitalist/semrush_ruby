@@ -1,0 +1,36 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.semrush.com/analytics/v1?display_limit=10&display_offset=0&key=change-this-to-your-real-key&target=github.com&target_type=root_domain&type=backlinks_refdomains
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - text/plain
+      User-Agent:
+      - SemrushRuby 0.1.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.7.8
+      Date:
+      - Sun, 19 Apr 2015 03:51:37 GMT
+      Content-Type:
+      - text/plain; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: "domain;backlinks_num;first_seen;last_seen;ip;country\r\njulialang.org;1634110;1370650020;1424692415;199.27.76.133;us\r\nopenlylocal.com;1605555;1386610242;1426107666;46.43.37.19;gb\r\ngodoc.org;857333;1370710652;1426107934;108.170.219.33;us\r\ngamebanana.com;595285;1370652779;1426108055;64.22.67.82;us\r\nlichess.org;449542;1369150619;1426107941;5.196.64.149;de\r\nlibreplan.org;440926;1371593304;1426107688;188.165.237.196;fr\r\nrust-ci.org;325120;1416008568;1425235681;151.236.11.197;at\r\nos2world.com;276225;1371592634;1426107368;83.227.149.79;se\r\ndmolsen.com;265945;1370647741;1426107501;69.163.197.177;us\r\nqiqiboy.com;231003;1372423509;1426108028;74.207.245.24;us\r\n"
+    http_version: 
+  recorded_at: Sun, 19 Apr 2015 03:51:37 GMT
+recorded_with: VCR 2.9.3

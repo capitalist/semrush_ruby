@@ -90,6 +90,20 @@ module SemrushRuby
          )
     end
 
+    def backlinks_domains domain, options = {}
+      # TODO : use uri lib to determine target type automatically
+      # TODO : build in a page feature that gets translated to limit, offset
+      # TODO : build in a :all feature that pulls all pages and combines
+      get('/analytics/v1',
+          type: 'backlinks_refdomains',
+          target: domain,
+          target_type: 'root_domain',
+          display_limit: options[:limit] || 100,
+          display_offset: options[:offset] || 0,
+         )
+    end
+    alias_method :backlinks_refdomains, :backlinks_domains
+
     private
 
     def default_headers

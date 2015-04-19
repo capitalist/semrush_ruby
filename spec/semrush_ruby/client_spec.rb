@@ -28,4 +28,16 @@ RSpec.describe SemrushRuby::Client do
       end
     end
   end
+
+  context 'backlinks_domains' do
+    let(:domain) { 'github.com' }
+    let(:result) { subject.backlinks_domains(domain, limit: 10) }
+
+    it 'returns backlinks for github.com' do
+      VCR.use_cassette('github_com_backlink_domains') do
+        # TODO : the resulting CSV::Table should be decomposed into structs for easier digestion
+        expect(result['source_title'].count).to eq(10)
+      end
+    end
+  end
 end
