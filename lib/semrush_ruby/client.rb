@@ -73,7 +73,7 @@ module SemrushRuby
       request(:get, path, options)
     end
 
-    def backlinks_overview domain
+    def backlinks_overview domain, options = {}
       get('/analytics/v1', type: 'backlinks_overview', target: domain, target_type: determine_target_type(domain, options))
     end
 
@@ -120,7 +120,7 @@ module SemrushRuby
     def set_offset_and_limit_from_page_param options
       return options unless options.has_key?(:page)
       options[:offset] = options[:page].to_i * self.page_size - self.page_size
-      options[:limit] = self.page_size
+      options[:limit] = self.page_size + options[:offset]
       options
     end
 

@@ -98,11 +98,13 @@ RSpec.describe SemrushRuby::Client do
     context 'when page is set to 2' do
       let(:result) { subject.backlinks_domains(domain, page: 2) }
       let(:domain) { 'github.com' }
-      it 'it uses an offset of 10 and a limit equal to the page size' do
-        expect(subject).to receive(:get).with('/analytics/v1', type: 'backlinks_refdomains', target: domain, target_type: 'root_domain', display_limit: 10, display_offset: 10)
+      it 'it uses an offset of 10 and a limit equal to the page size plus the offset' do
+        expect(subject).to receive(:get).with('/analytics/v1', type: 'backlinks_refdomains', target: domain, target_type: 'root_domain', display_limit: 20, display_offset: 10)
         result
       end
     end
+
+    pending 'when the :all option is passed'
 
   end
 end
