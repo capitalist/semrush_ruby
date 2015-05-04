@@ -40,4 +40,69 @@ RSpec.describe SemrushRuby::Client do
       end
     end
   end
+
+  context 'target_type detection' do
+    let(:result) { subject.backlinks_domains(domain, limit: 10) }
+
+    context 'when there is no uri scheme' do
+      let(:domain) { 'github.com' }
+      it 'it uses root_domain' do
+        expect(subject).to receive(:get).with('/analytics/v1', type: 'backlinks_refdomains', target: domain, target_type: 'root_domain', display_limit: 10, display_offset: 0)
+        result
+      end
+    end
+    context 'when there is a subdomain' do
+      let(:domain) { 'http://www.github.com' }
+      it 'uses domain' do
+        expect(subject).to receive(:get).with('/analytics/v1', type: 'backlinks_refdomains', target: domain, target_type: 'domain', display_limit: 10, display_offset: 0)
+        result
+      end
+    end
+    context 'when there is a path' do
+      let(:domain) { 'http://www.github.com/some-path' }
+      it 'uses url' do
+        expect(subject).to receive(:get).with('/analytics/v1', type: 'backlinks_refdomains', target: domain, target_type: 'url', display_limit: 10, display_offset: 0)
+        result
+      end
+    end
+    context 'when there is a query' do
+      let(:domain) { 'http://www.github.com/?q=some-path' }
+      it 'uses url' do
+        expect(subject).to receive(:get).with('/analytics/v1', type: 'backlinks_refdomains', target: domain, target_type: 'url', display_limit: 10, display_offset: 0)
+        result
+      end
+    end
+  end
+
+  context 'pagination' do
+    before { subject.page_size = 10 }
+
+    context 'when there is no page provided' do
+      let(:result) { subject.backlinks_domains(domain) }
+      let(:domain) { 'github.com' }
+      it 'it uses an offset of 0 and a limit equal to the page size' do
+        expect(subject).to receive(:get).with('/analytics/v1', type: 'backlinks_refdomains', target: domain, target_type: 'root_domain', display_limit: 10, display_offset: 0)
+        result
+      end
+    end
+
+    context 'when page is set to 1' do
+      let(:result) { subject.backlinks_domains(domain, page: 1) }
+      let(:domain) { 'github.com' }
+      it 'it uses an offset of 0 and a limit equal to the page size' do
+        expect(subject).to receive(:get).with('/analytics/v1', type: 'backlinks_refdomains', target: domain, target_type: 'root_domain', display_limit: 10, display_offset: 0)
+        result
+      end
+    end
+
+    context 'when page is set to 2' do
+      let(:result) { subject.backlinks_domains(domain, page: 2) }
+      let(:domain) { 'github.com' }
+      it 'it uses an offset of 10 and a limit equal to the page size' do
+        expect(subject).to receive(:get).with('/analytics/v1', type: 'backlinks_refdomains', target: domain, target_type: 'root_domain', display_limit: 10, display_offset: 10)
+        result
+      end
+    end
+
+  end
 end

@@ -34,11 +34,12 @@ module SemrushRuby
   end
   class Client
 
-    attr_accessor :api_key, :api_url, :last_request, :last_response
+    attr_accessor :api_key, :api_url, :last_request, :last_response, :page_size
 
     def initialize(options={})
       @api_url = options[:api_url] || SemrushRuby.api_url
       @api_key = options[:api_key] || SemrushRuby.api_key
+      @page_size = options[:page_size] || 100
     end
 
     def connection
@@ -73,38 +74,55 @@ module SemrushRuby
     end
 
     def backlinks_overview domain
-      # TODO : use uri lib to determine target type automatically
-      get('/analytics/v1', type: 'backlinks_overview', target: domain, target_type: 'root_domain')
+      get('/analytics/v1', type: 'backlinks_overview', target: domain, target_type: determine_target_type(domain, options))
     end
 
     def backlinks domain, options = {}
-      # TODO : use uri lib to determine target type automatically
-      # TODO : build in a page feature that gets translated to limit, offset
       # TODO : build in a :all feature that pulls all pages and combines
+      options = set_offset_and_limit_from_page_param(options)
       get('/analytics/v1',
           type: 'backlinks',
           target: domain,
-          target_type: 'root_domain',
-          display_limit: options[:limit] || 100,
+          target_type: determine_target_type(domain, options),
+          display_limit: options[:limit] || page_size,
           display_offset: options[:offset] || 0,
          )
     end
 
     def backlinks_domains domain, options = {}
-      # TODO : use uri lib to determine target type automatically
-      # TODO : build in a page feature that gets translated to limit, offset
       # TODO : build in a :all feature that pulls all pages and combines
+      options = set_offset_and_limit_from_page_param(options)
       get('/analytics/v1',
           type: 'backlinks_refdomains',
           target: domain,
-          target_type: 'root_domain',
-          display_limit: options[:limit] || 100,
+          target_type: determine_target_type(domain, options),
+          display_limit: options[:limit] || page_size,
           display_offset: options[:offset] || 0,
          )
     end
     alias_method :backlinks_refdomains, :backlinks_domains
 
+
     private
+
+    def determine_target_type domain, options = {}
+      return options[:target_type] if options.has_key?(:target_type)
+      require 'uri'
+      begin
+        uri = URI(domain)
+        uri.scheme.nil? ? 'root_domain' : ((uri.path.length > 0 || uri.query) ? 'url' : 'domain')
+      rescue
+        'root_domain'
+      end
+    end
+
+    # FIXME : feature envy, we need some object the represents options that can do this
+    def set_offset_and_limit_from_page_param options
+      return options unless options.has_key?(:page)
+      options[:offset] = options[:page].to_i * self.page_size - self.page_size
+      options[:limit] = self.page_size
+      options
+    end
 
     def default_headers
       {
